@@ -16,6 +16,11 @@ You could find the presentation below:
 
 According to the project, the student had to make use of Python to explore data related to bike share systems for three major cities in the United States — Chicago, New York City, and Washington. The student had to write code to (a) import the data and answer interesting questions about it by computing descriptive statistics, and (b) write a script that takes in raw input to create an interactive experience in the terminal to present these statistics.
 
+## Abilities of the Users
+
+* The users are able filter the information by city, month and weekday, in order to visualize statistics information related to a specific subset of data.
+
+* The users are able to chose, from a list of options, the statistics the user would like to calculate, based on the available filtered data.
 
 # Python Learning In The Course
 
