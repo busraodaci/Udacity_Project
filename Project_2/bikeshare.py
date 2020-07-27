@@ -16,10 +16,10 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
 
-    
+
 
     while True:
       city = input("\nPlease Enter the City Which you would like to analyze ? \nChicago, \nNew York City or \nWashington?\n")
@@ -214,8 +214,10 @@ def user_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
+    # TO DO: Display rawdata if the user wants to see
+
 def raw_data(df):
-    user_choice = input('\nWould you like to see 5 lines of raw data? \nPlease enter yes or no.\n')
+    user_choice = input('\nWould you like to see the raw data? \nPlease enter yes or no.\n If yes, It will be shown 5 lines of raw data.\n')
     line_cnt = 0
 
     while True:
@@ -224,7 +226,7 @@ def raw_data(df):
             line_cnt += 5
             user_choice = input('\nWould you like to see more raw data? \nPlease enter yes or no.\n')
         else:
-            break   
+            break
 
 def main():
     while True:
