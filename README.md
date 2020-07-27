@@ -7,6 +7,10 @@ This project consisted in the exploration of a provided database movie rentals i
 
 For the presentation component, the student had to create four slides, and each should have (a) a question of interest, (b) a supporting SQL query needed to answer the question, (c) a supporting visualization created using the final data of the SQL queries that answer the questions of interest, and (d) a small summary on each slide.
 
+You could find the presentation below:
+
+[SQL_Project_Busra.pdf](https://github.com/busraodaci/Udacity_Project_Nanodegree/files/4977623/SQL_Project_Busra.pdf)
+
 
 # Project 2
 
