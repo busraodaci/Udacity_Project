@@ -1,0 +1,17 @@
+/*query 2 for question 1.2 */
+SELECT   f.title,
+         c.NAME,
+         f.rental_duration,
+         Ntile(4) OVER (ORDER BY f.rental_duration) AS standard_quartile
+FROM     film_category fc,
+         category c,
+         film f
+WHERE    c.category_id = fc.category_id
+AND      f.film_id = fc.film_id
+AND      c.NAME IN ('Animation',
+                    'Children',
+                    'Classics',
+                    'Comedy',
+                    'Family',
+                    'Music')
+ORDER BY f.rental_duration;

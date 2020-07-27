@@ -1,0 +1,25 @@
+/* Query 4 for question 2.2*/
+SELECT DATE_TRUNC('month', p.payment_date) pay_mon,
+       c.first_name || ' ' || c.last_name AS fullname,
+       COUNT(p.amount) AS pay_countpermon,
+       SUM(p.amount) AS pay_amount
+FROM customer c,
+     payment p
+WHERE p.customer_id = c.customer_id
+  AND c.first_name || ' ' || c.last_name IN
+    (SELECT M.full_name
+     FROM
+       (SELECT c.first_name || ' ' || c.last_name AS full_name,
+               SUM(p.amount) AS amount_total
+        FROM customer c,
+             payment p
+        WHERE p.customer_id = c.customer_id
+        GROUP BY c.first_name || ' ' || c.last_name
+        ORDER BY SUM(p.amount) DESC
+        LIMIT 10) M)
+  AND (p.payment_date BETWEEN '2007-01-01' AND '2008-01-01')
+GROUP BY c.first_name || ' ' || c.last_name,
+         DATE_TRUNC('month', p.payment_date)
+ORDER BY c.first_name || ' ' || c.last_name,
+         DATE_TRUNC('month', p.payment_date),
+         COUNT(p.amount);

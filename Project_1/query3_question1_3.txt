@@ -1,0 +1,24 @@
+/*query 3 for question 1.3 */
+SELECT   SQ.NAME                     AS Category,
+         SQ.standard_quartile        AS Rental_Length_Category,
+         Count(SQ.standard_quartile) AS COUNT
+FROM     (
+                  SELECT   f.title,
+                           c.NAME,
+                           f.rental_duration,
+                           Ntile(4) OVER (ORDER BY f.rental_duration) AS standard_quartile
+                  FROM     film_category fc,
+                           category c,
+                           film f
+                  WHERE    c.category_id = fc.category_id
+                  AND      f.film_id = fc.film_id
+                  AND      c.NAME IN ('Animation',
+                                      'Children',
+                                      'Classics',
+                                      'Comedy',
+                                      'Family',
+                                      'Music')) AS SQ
+GROUP BY SQ.NAME,
+         SQ.standard_quartile
+ORDER BY SQ.NAME,
+         SQ.standard_quartile;
